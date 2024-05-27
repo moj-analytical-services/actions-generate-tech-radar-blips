@@ -1,0 +1,15 @@
+name: 'Generate tech radar blips'
+description: 'Generate tech radar blips from GitHub discussions'
+
+runs:
+  using: "composite"
+  steps:
+    - id: setup-python
+      name: setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - id: test
+      name: test
+      shell: bash
+      run: python ${{ github.action_path }}/main.py
